@@ -12,6 +12,7 @@ import com.dxctraining.inventorymgt.phone.services.IPhoneService;
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 import com.dxctraining.inventorymgt.supplier.services.ISupplierService;
 
+
 @Component
 public class ItemUi {
 
@@ -26,31 +27,28 @@ public class ItemUi {
 	@PostConstruct
 	void runApp() {
 
-		Supplier supplier1 = new Supplier(1, "mohan");
-		Supplier supplier2 = new Supplier(2, "sohan");
+		Supplier supplier1 = new Supplier(4, "ankit");
+		Supplier supplier2 = new Supplier(7, "goku");
 
 		supplierService.add(supplier1);
 		supplierService.add(supplier2);
 
-		Item item1 = new Item(1, "iphone", supplier1);
-		Item item2 = new Item(2, "samsung", supplier2);
+		  Item item1 = new Item(1, "canon", supplier1);
+		  Item item2 = new Item(2, "hp", supplier2);
 
 		itemService.addItem(item1);
 		itemService.addItem(item2);
 
-		System.out.println("******Sprint 3 is working");
+		
 
-		Phone ph1 = new Phone(11, "AAA", supplier1, 64);
+		Phone ph1 = new Phone(245, "xiamo", supplier1, 1222);
 		phoneService.add(ph1);
-		Phone ph2 = new Phone(22, "BBB", supplier2, 128);
+		Phone ph2 = new Phone(22, "nokia", supplier2, 1283434);
 		phoneService.add(ph2);
 
 		int id1 = item1.getId();
-		Item itemFetched1 = phoneService.findPhoneById(id1);
-		System.out.println("id is" + itemFetched1.getId() + "name is" + itemFetched1.getName());
-		int id2 = item2.getId();
-		Item itemFetched2 = phoneService.findPhoneById(id2);
-		System.out.println("id is" + itemFetched2.getId() + "name is" + itemFetched2.getName());
+		Item itemFetched1 = itemService.findItemById(id1); 
+		System.out.println("id is"+itemFetched1.getId()+"name is"+itemFetched1.getName());
 	}
 }
 

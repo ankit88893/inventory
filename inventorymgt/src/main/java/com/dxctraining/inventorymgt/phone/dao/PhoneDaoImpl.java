@@ -1,6 +1,6 @@
 package com.dxctraining.inventorymgt.phone.dao;
 
-import javax.persistence.EntityManager; 
+import javax.persistence.EntityManager;  
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
@@ -17,9 +17,7 @@ public class PhoneDaoImpl implements IPhoneDao {
 	@Override
 	public Phone findPhoneById(int id) {
 		Phone phone = entityManager.find(Phone.class, id);
-		if (phone == null) {
-			throw new SupplierNotFoundException("supplier not found for id=" + id);
-		}
+		
 		return phone;
 	}
 
