@@ -41,42 +41,34 @@ public class Controllers {
 	@PostConstruct
 	public void init() {
 
-		System.out.println("******SPrint 1 is working");
-		Supplier supplier1 = new Supplier("mohan", "11111");
+		Supplier supplier1 = new Supplier("vegita", "001");
 		supplier1 = supplierService.add(supplier1);
 		Item item1 = new Item("iphone", supplier1);
 		item1 = itemService.addItem(item1);
 
-		Supplier supplier2 = new Supplier("sohan", "22222");
+		Supplier supplier2 = new Supplier("goku", "0002");
 		supplier2 = supplierService.add(supplier2);
 		Item item2 = new Item("samsung", supplier2);
 		item2 = itemService.addItem(item2);
 
-		Supplier supplier3 = new Supplier("Rohan", "33333");
+		Supplier supplier3 = new Supplier("terence", "00003");
 		supplier3 = supplierService.add(supplier3);
 		Item item3 = new Item("oneplus", supplier3);
 		item3 = itemService.addItem(item3);
 
-		System.out.println("******Sprint 2 is working");
-
-		Phone phone1 = new Phone("IPhone7+", supplier1, 101);
+		Phone phone1 = new Phone("xperia+", supplier1, 64);
 		phone1 = (Phone) itemService.addItem(phone1);
 
-		Phone phone2 = new Phone("OnePlusNord", supplier2, 103);
+		Phone phone2 = new Phone("note", supplier2, 128);
 		phone2 = (Phone) itemService.addItem(phone2);
 
-		System.out.println("******Sprint 3 is working");
-
-		Computer computer1 = new Computer("HP", supplier3, "512GB");
+		Computer computer1 = new Computer("HP", supplier3, "1tb");
 		computer1 = (Computer) itemService.addItem(computer1);
-		Computer computer2 = new Computer("LG", supplier2, "1TB");
+		Computer computer2 = new Computer("Asus", supplier2, "2TB");
 		computer2 = (Computer) itemService.addItem(computer2);
-
-		System.out.println("******Sprint 4 is working");
 
 	}
 
-	
 	@GetMapping("/phoneslist")
 	public ModelAndView allPhones() {
 		List<Phone> values = phoneService.allPhones();
@@ -105,7 +97,7 @@ public class Controllers {
 		return modelAndView;
 
 	}
-	
+
 	@GetMapping("/supplier")
 	public ModelAndView supplierDetails(@RequestParam("id") int id) {
 		Supplier supplier = supplierService.findSupplierById(id);
