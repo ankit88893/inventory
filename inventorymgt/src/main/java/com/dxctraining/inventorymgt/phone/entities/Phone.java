@@ -1,18 +1,21 @@
 package com.dxctraining.inventorymgt.phone.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import com.dxctraining.inventorymgt.item.entities.Item;
 import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 
 @Entity
+@Table(name = "phones")
 public class Phone extends Item {
 
 	private int storageSize;
 	
+	public Phone() {}
 	
-	public Phone(int id, String name, Supplier supplier, int storageSize) {
-		super(id, name, supplier);
+	public Phone(String name, Supplier supplier, int storageSize) {
+		super(name, supplier);
 		this.storageSize = storageSize;
 	}
 

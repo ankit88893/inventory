@@ -1,5 +1,9 @@
 package com.dxctraining.inventorymgt.phone.services;
 
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,10 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dxctraining.inventorymgt.phone.dao.IPhoneDao;
 import com.dxctraining.inventorymgt.phone.entities.Phone;
 import com.dxctraining.inventorymgt.exceptions.InvalidArgumentException;
+import com.dxctraining.inventorymgt.item.entities.Item;
 
 @Transactional
 @Service
-public class PhoneServiceImpl implements IPhoneService {
+public class PhoneServiceImpl extends Item implements IPhoneService {
 	@Autowired
 	private IPhoneDao dao;
 
@@ -19,23 +24,11 @@ public class PhoneServiceImpl implements IPhoneService {
 		Phone phone = dao.findPhoneById(id);
 		return phone;
 	}
-
+	
 	@Override
-	public Phone add(Phone phone) {
-		validate(phone);
-		phone = dao.add(phone);
-		return phone;
-	}
-
-	@Override
-	public void remove(int id) {
-		dao.remove(id);
-	}
-
-	public void validate(Object arg) {
-		if (arg == null) {
-			throw new InvalidArgumentException("argument is null");
-		}
+	public List<Phone> allPhones() {
+		List<Phone> allphones =dao.allPhones();
+		return allphones;
 	}
 
 }

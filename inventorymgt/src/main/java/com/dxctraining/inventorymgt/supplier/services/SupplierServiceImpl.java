@@ -1,5 +1,7 @@
 package com.dxctraining.inventorymgt.supplier.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +38,20 @@ public class SupplierServiceImpl implements ISupplierService {
 		if (arg == null) {
 			throw new InvalidArgumentException("argument is null");
 		}
+	}
+
+	@Override
+	public List<Supplier> allSuppliers() {
+		List<Supplier> supplier = dao.allSuppliers();
+		return supplier;
+	}
+
+	@Override
+	public boolean authenticate(int id, String password) {
+		Supplier supplier = dao.findSupplierById(id);
+		String storedPassword = supplier.getPassword();
+		boolean equals = storedPassword.equals(password);
+		return equals;
 	}
 
 }

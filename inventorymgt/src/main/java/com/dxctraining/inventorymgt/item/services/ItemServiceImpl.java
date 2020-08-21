@@ -1,5 +1,7 @@
 package com.dxctraining.inventorymgt.item.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -7,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dxctraining.inventorymgt.exceptions.InvalidArgumentException;
 import com.dxctraining.inventorymgt.item.dao.IItemDao;
 import com.dxctraining.inventorymgt.item.entities.Item;
+import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 
 @Transactional
 @Service
@@ -38,4 +41,11 @@ public class ItemServiceImpl implements IItemService {
 			throw new InvalidArgumentException("argument is null");
 		}
 	}
+	
+	@Override
+	public List<Item> allItems() {
+		List<Item>item=dao.allItems();
+        return item;
+	}
+
 }

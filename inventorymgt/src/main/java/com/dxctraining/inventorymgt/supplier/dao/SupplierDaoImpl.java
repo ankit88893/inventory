@@ -1,7 +1,10 @@
 package com.dxctraining.inventorymgt.supplier.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
@@ -33,6 +36,14 @@ public class SupplierDaoImpl implements ISupplierDao {
 	public void remove(int id) {
 		Supplier supplier = findSupplierById(id);
 		entityManager.remove(supplier);
+	}
+
+	@Override
+	public List<Supplier> allSuppliers() {
+	      String jpaql="from Supplier";
+	        TypedQuery<Supplier>query=entityManager.createQuery(jpaql,Supplier.class);
+	        List<Supplier> supplierList=query.getResultList();
+	        return supplierList;	
 	}
 
 }
