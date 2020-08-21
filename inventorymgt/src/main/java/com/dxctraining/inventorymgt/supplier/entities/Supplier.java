@@ -15,14 +15,12 @@ public class Supplier {
 	private String name;
 	private String password;
 
+	public Supplier() {
+	}
 
-
-
-	public Supplier() {}
-
-	public Supplier(String name,String password) {
+	public Supplier(String name, String password) {
 		this.name = name;
-		this.password=password;
+		this.password = password;
 	}
 
 	public int getId() {
@@ -45,6 +43,7 @@ public class Supplier {
 	public int hashCode() {
 		return id;
 	}
+
 	public String getPassword() {
 		return password;
 	}

@@ -11,9 +11,10 @@ import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 public class Phone extends Item {
 
 	private int storageSize;
-	
-	public Phone() {}
-	
+
+	public Phone() {
+	}
+
 	public Phone(String name, Supplier supplier, int storageSize) {
 		super(name, supplier);
 		this.storageSize = storageSize;

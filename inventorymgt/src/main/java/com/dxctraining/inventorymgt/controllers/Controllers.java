@@ -53,13 +53,13 @@ public class Controllers {
 
 		Supplier supplier3 = new Supplier("terence", "00003");
 		supplier3 = supplierService.add(supplier3);
-		Item item3 = new Item("oneplus", supplier3);
+		Item item3 = new Item("lenevo", supplier3);
 		item3 = itemService.addItem(item3);
 
-		Phone phone1 = new Phone("xperia+", supplier1, 64);
+		Phone phone1 = new Phone("xperia", supplier1, 64);
 		phone1 = (Phone) itemService.addItem(phone1);
 
-		Phone phone2 = new Phone("note", supplier2, 128);
+		Phone phone2 = new Phone("mi", supplier2, 128);
 		phone2 = (Phone) itemService.addItem(phone2);
 
 		Computer computer1 = new Computer("HP", supplier3, "1tb");

@@ -41,11 +41,11 @@ public class ItemServiceImpl implements IItemService {
 			throw new InvalidArgumentException("argument is null");
 		}
 	}
-	
+
 	@Override
 	public List<Item> allItems() {
-		List<Item>item=dao.allItems();
-        return item;
+		List<Item> item = dao.allItems();
+		return item;
 	}
 
 }

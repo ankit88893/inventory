@@ -15,7 +15,7 @@ import com.dxctraining.inventorymgt.phone.entities.Phone;
 @Transactional
 @Service
 public class ComputerServiceImpl extends Item implements IComputerService {
-	
+
 	@Autowired
 	private IComputerDao dao;
 
@@ -30,10 +30,10 @@ public class ComputerServiceImpl extends Item implements IComputerService {
 			throw new InvalidArgumentException("argument is null");
 		}
 	}
-	
+
 	@Override
 	public List<Computer> allComputers() {
-		List<Computer> allComputer =dao.allComputers();
+		List<Computer> allComputer = dao.allComputers();
 		return allComputer;
 	}
 

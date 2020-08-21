@@ -24,10 +24,10 @@ public class PhoneServiceImpl extends Item implements IPhoneService {
 		Phone phone = dao.findPhoneById(id);
 		return phone;
 	}
-	
+
 	@Override
 	public List<Phone> allPhones() {
-		List<Phone> allphones =dao.allPhones();
+		List<Phone> allphones = dao.allPhones();
 		return allphones;
 	}
 
